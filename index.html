@@ -1,0 +1,578 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>music</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="./node_modules/bootstrap-icons/font/bootstrap-icons.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css"
+    />
+    <link
+      rel="shortcut icon"
+      href="images/Naijaloaded-Desktop-PC-Logo-4.png"
+      type="image/x-icon"
+    />
+
+    <style>
+      body {
+        background-color: rgb(7, 73, 2);
+        margin: 0;
+        padding: 0;
+        position: static;
+      }
+      .firstlogo {
+        background-color: black;
+        text-align: center;
+        margin-top: 60px;
+        width: 100%;
+      }
+      .firstlogo img {
+        width: 20%;
+      }
+      #playlist.active {
+        display: flex;
+      }
+      .navbar {
+        background-color: rgb(158, 229, 66) !important;
+        height: 50px;
+      }
+      .nav-link {
+        color: aliceblue !important;
+        font-size: x-large;
+        margin-left: 20px;
+        font-family: "tahoma";
+        font-weight: bolder;
+      }
+      .nav-link:hover {
+        background-color: rgb(6, 100, 11);
+        border-radius: 12px;
+      }
+      .iframee {
+        height: 50%;
+        margin-left: 15%;
+        margin-bottom: 17%;
+        /* display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        margin-right: 17%; */
+      }
+      .card {
+        border-radius: 1px;
+      }
+      .card:hover {
+        background-color: black;
+      }
+
+      .divimg img {
+        width: 50%;
+        height: 50vh;
+        margin-left: 25%;
+        padding-top: 40px;
+      }
+      .slick {
+        height: 55%;
+        margin-right: 17%;
+      }
+      .card img {
+        height: 100px;
+        width: 100%;
+      }
+      iframe {
+        height: 25%;
+        width: 100%;
+      }
+      .btn {
+        width: 100%;
+        background-color: green;
+      }
+      .card-title {
+        color: greenyellow;
+      }
+      /* @media (max-width:768px) {
+        .firstlogo img{
+          width: 40px;
+        }
+        .navbar{
+          height: auto;
+        }
+        .nav-link{
+          font-size: large;
+          margin-left: 10px;
+
+        }
+        .iframee{
+          margin-left: 5%;
+          margin-right: 5%;
+        }
+        .card{
+          margin-bottom: 20px;
+        }
+        
+      }
+      @media (max-width:576px) {
+        .firstlogo img{
+          width: 60px;
+
+        }
+        .nav-link{
+          font-size: medium;
+          margin-left: 5px;
+
+        }
+        .iframee{
+          margin-left: 2%;
+          margin-right: 2%;
+        }
+        .navbar-brand img{
+          display: flex;
+        }
+    
+      }
+       */
+      @media (min-width: 576px) {
+        img {
+          width: 50px;
+        }
+        .navbar {
+          width: 100%;
+        }
+        .firstlogo {
+          width: 100%;
+        }
+        .logo {
+          width: 40px;
+        }
+        .top1 img {
+          width: 100%;
+          margin-left: 10%;
+        }
+        .navbar-brand img {
+          width: 20%;
+          height: 10%;
+        }
+        .navbar-toggler-icon {
+          display: flex;
+          position: fixed;
+        }
+      }
+      h6 img{
+        border-radius: 50%;
+
+      }
+      .btny:hover{
+        background-color: rgb(119, 111, 111) !important;
+        color: rgb(15, 15, 15);
+      }
+      h6{
+        color: black;
+        font-family: "tahoma";
+        font-weight: bolder;
+        font-size: large;
+      }
+      .alert {
+        padding: 20px;
+        background-color: #34721c;
+        color: white;
+        margin-bottom: 55px;
+        display: block;
+      }
+      .closebtn {
+        margin-left: 15px;
+        color: white;
+        font-weight: bold;
+        float: right;
+        font-size: 22px;
+        line-height: 20px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+      .closebtn:hover {
+        color: black;
+      }
+      .btn {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- first nav -->
+    <div class="col-12">
+      <div class="firstlogo">
+        <img src="images/Naijaloaded-Desktop-PC-Logo-4.png" alt="" />
+      </div>
+      <div class="vav">
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+          <div class="container-fluid" style="display: flex">
+            <!-- <a class="navbar-brand" href="#"
+          ><img
+            src="images/Naijaloaded-Desktop-PC-Logo-4.png"
+            alt=""
+            width="50px"
+            style="background-color: black; " class="logo"/></a>   -->
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span
+                class="navbar-toggler-icon"
+                style="
+                  font-size: large;
+                  font-weight: 500;
+                  background-color: red;
+                  position: static;
+                "
+              ></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#"
+                    >Home</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#youtube" id="Music">Music</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a
+                    class="nav-link dropdown-toggle"
+                    href="#"
+                    id="navbarDropdownMenuLink"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    Playlist
+                  </a>
+
+                  <ul
+                    class="dropdown-menu"
+                    aria-labelledby="navbarDropdownMenuLink"
+                  >
+                    <li>
+                      <form class="d-flex">
+                        <input
+                          class="form-control me-2"
+                          type="search"
+                          placeholder="Search"
+                          aria-label="Search"
+                        />
+                        <button class="btn" type="submit">
+                          <i
+                            class="bi bi-search"
+                            style="
+                              width: 10px;
+                              background-color: aliceblue !important;
+                            "
+                          ></i>
+                        </button>
+                      </form>
+                    </li>
+                    <li>
+                      <audio controls>
+                        <source src="images/groovy-ambient-funk-201745.mp3" />
+                      </audio>
+                    </li>
+                    <li>
+                      <audio controls>
+                        <source src="images/midnight-forest-184304.mp3" />
+                      </audio>
+                    </li>
+                    <li>
+                      <iframe
+                        width="100%"
+                        height="50%"
+                        src="https://www.youtube.com/embed/uxhjJ-0qAec"
+                        title="Power or Nothing Odumeje ft Flavour"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen
+                      ></iframe>
+                    </li>
+                    <li>
+                      <iframe
+                        width="100%"
+                        height="50%"
+                        src="https://www.youtube.com/embed/xTGmbvsP9mA"
+                        title="Flavour - Woman King (Official Audio)"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen
+                      ></iframe>
+                    </li>
+                  </ul>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#a">Artists</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+      <!-- last of first nav -->
+      <!-- slick -->
+      <div class="top1">
+        <a href=""
+          ><img
+            src="images/MSport_JACKPOT_728X90f.gif"
+            alt=""
+            style="margin-left: 18%; padding-top: 40px; width: 55%"
+        /></a>
+      </div>
+      <div class="top2">
+        <a href=""
+          ><img
+            src="images/advertise-with-us-Naijaloaded-800x98.jpg"
+            alt=""
+            style="margin-left: 18%; padding-top: 40px; width: 55%"
+        /></a>
+      </div>
+    </div>
+    <div class="slick">
+      <div class="divimg"><img src="images/image1.jpeg" alt="" /></div>
+      <div class="divimg">
+        <img src="images/bba-naijaloaded-Copy.jpg" alt="" />
+      </div>
+      <div class="divimg">
+        <img src="images/ola-wiz-dav-700x532.jpg" alt="" />
+      </div>
+      <div class="divimg">
+        <img src="images/olamide-bday-600x600.jpg" alt="" />
+      </div>
+      <a href=""></a>
+    </div>
+    <!-- slick 1 end -->
+    <!-- odumeje start -->
+
+    <div class="iframee" style="display: none" id="#youtube">
+      >
+      <h1 id="head" style="text-align: center; color: white">MUSICs</h1>
+      <div class="row">
+        <div class="col">
+          <div class="card">
+            <img src="images/download.jfif" class="img-thumbnail" />
+            <div class="card-body">
+              <h5 class="card-title">FLAVOUR MUSIC</h5>
+              <p class="card-text">
+                <iframe
+                  src="https://www.youtube.com/embed/sn4mU5nw3B8"
+                  title="Flavour - Fearless featuring Ejyk Nwamba (Official Audio)"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                ></iframe>
+              </p>
+              <a href="#" class="btn">more</a>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <img src="images/chidimma.webp" class="img-thumbnail" />
+            <div class="card-body">
+              <h5 class="card-title">CHIDIMMA MUSIC</h5>
+              <p class="card-text">
+                <iframe
+                  src="https://www.youtube.com/embed/i1cpAE8vE4g"
+                  title="Chidinma - Ifunanya Gi (Official VIdeo)"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                ></iframe>
+              </p>
+              <a href="#" class="btn">more</a>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <img src="images/davido.jfif" class="img-thumbnail" />
+            <div class="card-body">
+              <h5 class="card-title">DAVIDO MUSIC</h5>
+              <p class="card-text">
+                <iframe
+                  src="https://www.youtube.com/embed/MoUlpHyNK6g"
+                  title="DEEJAY 13 - DINGINDI (Clip OFFICIEL)"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                ></iframe>
+              </p>
+              <a href="#" class="btn">more</a>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <img src="images/teni.webp" class="img-thumbnail" />
+            <div class="card-body">
+              <h5 class="card-title">TENI <br />MUSIC</h5>
+              <p class="card-text">
+                <iframe
+                  src="https://www.youtube.com/embed/YTkHNdB6r9c"
+                  title="TENI - MALAIKA OFFICIAL VIDEO"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                ></iframe>
+              </p>
+              <a href="#" class="btn">more</a>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <img src="images/mobad.jfif" class="img-thumbnail" />
+            <div class="card-body">
+              <h5 class="card-title">MOBAD MUSIC</h5>
+              <p class="card-text">
+                <iframe
+                  src="https://www.youtube.com/embed/BGym3wSPDhw"
+                  title="Mohbad - Ask About Me (Official Video)"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                ></iframe>
+              </p>
+              <a href="#" class="btn">more</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- wizkid -->
+    </div>
+
+    <!-- odumeje -->
+    <div id="customAlert" class="alert">
+      <span class="closebtn" onclick="closeAlert()">&times;</span>
+      <strong id="art">ARTISTS:</strong><h6>FLAVOUR: <Img src="images/flavour2.jfif"></Img></h6>
+      <h6>DAVIDO :<Img src="images/davido.jfif"></Img></h2>
+        <h6>MOHBAD : <img src="images/mobad.jfif" alt=""></h6>
+        <h6>CHIDIMMA : <Img src="images/chidimma.webp"></Img></h6>
+        <h6>TENI : <img src="images/teni.webp" alt=""></h6>
+    </div>
+    <button
+      onclick="showAlert()"
+      class="btny"
+      style="
+        height: 10%;
+        margin-bottom: 10%;
+        margin-left: 40%;
+        background-color: black;
+        color: aliceblue;
+        width: 100px;
+        box-sizing: border-box;
+        border-radius: 14px;
+        box-shadow: none;
+        
+      " 
+    >
+      <h1 style="font-family: tahoma; font-weight: bold; font-size: large" id="a">
+        ARTISTS
+      </h1>
+    </button>
+    <!-- wizkid -->
+
+    <!-- wiskid last -->
+    <footer
+      class="bg-dark text-light text-center fixed-bottom"
+      style="
+        height: 60px !important;
+        background-color: rgb(78, 141, 78) !important;
+        color: black !important;
+        font-weight: bold;
+      "
+    >
+      <div class="container">
+        <p style="text-align: center">&copy;2024, chiommy</p>
+        <p>follow us on <a href="https://web.facebook.com/profile.php?id=100087666980034">facebook</a>and <a href="htps://whatsapp.com/dl/">whatsapp</a></p>
+      </div>
+    </footer>
+    <!--  -->
+    <script src="/node_modules/bootstrap-icons/font/bootstrap-icons.json"></script>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+      integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+      crossorigin="anonymous"
+    ></script>
+
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $(".slick").slick({
+          dots: true,
+          infinite: true,
+
+          speed: 500,
+          slideToShow: 1,
+          slideToScroll: 1,
+          autoplay: true,
+          autoplaySpeed: 2000,
+          // arrows: true,
+        });
+      });
+      // odumeje
+      let music = document.getElementById("Music");
+      let iframee = document.querySelector(".iframee");
+
+      Music.addEventListener("click", function () {
+        alert("SCROLL-DOWN FOR MUSICs");
+
+        iframee.style.display = "block";
+      });
+
+      // odumeje
+      // playlist
+      function showAlert() {
+        document.getElementById("customAlert").style.display = "block";
+      }
+      function closeAlert() {
+        document.getElementById("customAlert").style.display = "none";
+      }
+      // plaaylit
+    </script>
+  </body>
+</html>
